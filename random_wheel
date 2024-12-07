@@ -1,0 +1,20 @@
+import random
+point_to_reach = 15
+yes = 0
+no = 0
+q = random.randint(0,1)
+while True:
+    q = random.randint(0,1)
+    if q == 1:
+        yes += 1
+        print("yes + 1")
+
+    if q == 0:
+        no += 1
+        print("no + 1")
+    if yes == point_to_reach:
+        print("Yes, do it")
+        break
+    if no == point_to_reach:
+        print("No, dont do it")
+        break

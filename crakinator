@@ -1,0 +1,83 @@
+gals = [
+    {"name": "irene", "glass": "yes", "thai": "yes", "smart": "yes", "tall": "medium", "band": "yes"},
+    {"name": "emma", "glass": "no", "thai": "no", "smart": "no", "tall": "slightly high",  "band": "no", "asian": "no"},
+    {"name": "cindy", "glass": "yes", "thai": "no", "smart": "no", "tall": "low" , "band": "no", "asian": "yes"},
+    {"name": "proud", "glass": "no", "thai": "yes", "smart": "yes", "tall": "medium" , "band": "no"},
+    {"name": "mercy", "glass": "yes", "thai": "yes", "smart": "no", "tall": "low" , "band": "no", },
+    {"name": "elly", "glass": "no", "thai": "yes", "smart": "no", "tall": "slightly low" , "band": "no", },
+    {"name": "palin", "glass": "no", "thai": "yes", "smart": "no", "tall": "medium" , "band": "no", },
+    {"name": "tatar", "glass": "no", "thai": "yes", "smart": "no", "tall": "slightly low" , "band": "no", },
+    {"name": "selah", "glass": "no", "thai": "no", "smart": "no", "tall": "slightly low" , "band": "no", "asian": "yes"},
+    {"name": "seren", "glass": "no", "thai": "yes", "smart": "no", "tall": "low" , "band": "no", },
+    {"name": "pam", "glass": "no", "thai": "yes", "smart": "no", "tall": "medium" , "band": "yes", },
+    {"name": "elsa", "glass": "yes", "thai": "no", "smart": "no", "tall": "high" , "band": "no", "asian": "yes"},
+    {"name": "eclaire", "glass": "yes", "thai": "yes", "smart": "yes", "tall": "slightly high" , "band": "yes", },
+    {"name": "kj", "glass": "yes", "thai": "yes", "smart": "yes", "tall": "slightly high" , "band": "yes", },
+    {"name": "aim", "glass": "yes", "thai": "yes", "smart": "yes", "tall": "slightly high" , "band": "no", },
+    {"name": "fuji", "glass": "no", "thai": "yes", "smart": "yes", "tall": "medium" , "band": "no", },
+    {"name": "wawa", "glass": "no", "thai": "yes", "smart": "yes", "tall": "slightly high" , "band": "no", },
+]
+
+def hello(question, properties):
+    while True:
+        balls = input(question)
+        global gals
+        if balls == "yes":
+            
+            gals = [girls for girls in gals if girls[properties] != "no"]
+            break
+
+        elif balls == "no":
+            gals = [girls for girls in gals if girls[properties] == "no"]
+            break
+        elif balls == "not sure":
+            break
+        else:
+            
+            print("please re-enter yes or no")
+
+hello("Does your crush wear glasses? ", "glass")
+        
+
+hello("Is your crush Thai? ", "thai")
+
+for x in gals:
+    if x["thai"] == "no":
+        hello("is your crush Asian? ", "asian")
+
+while True:
+    les = input("How tall is your crush? (high = Oscar,  slightly high = Jbew, medium = Uno, slightly low = Ivan, low = Mercy) ")
+    if les == "high":
+        gals = [girls for girls in gals if girls["tall"] == "high"]
+        break
+    elif les == "slightly high":
+        gals = [girls for girls in gals if girls["tall"] == "slightly high"]
+        break
+    elif les == "medium":
+        gals = [girls for girls in gals if girls["tall"] == "medium"]
+        break
+    elif les == "slightly low":
+        gals = [girls for girls in gals if girls["tall"] == "slightly low"]
+        break
+    elif les == "low":
+        gals = [girls for girls in gals if girls["tall"] == "low"]
+        break
+    else:
+
+
+        
+        print("please re-enter a valid response (high, slightly high, medium, slightly low, low)")
+
+
+hello("is your crush in band (any level)? ", "band")
+if gals == []:
+    print("no girls matched your likings")
+
+
+if len(gals) > 1:
+    print("Your possible crush is: ")
+    for girls in gals:
+        print(girls["name"])
+else:     
+    for girls in gals:
+        print("your crush is " + girls["name"])

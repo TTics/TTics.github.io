@@ -1,0 +1,18 @@
+tuple = (1, 2, 3)
+list = [1, 2, 3]
+dict = {4: "j", "r": 3}
+
+.\.venv\Scripts\activate
+
+pyinstaller --onefile --noconsole --hidden-import gtts Thai_spelling_51_100.py
+pyinstaller --onefile --hidden-import gtts --hidden-import pygame Thai_spelling_51-100.py
+source /home/theem1502/your-virtualenv/bin/activate
+chmod 644 /home/theem1502/flask_app/wsgi.py
+chmod 644 /home/theem1502/mysite/wsgi.py
+pip freeze | grep gtts
+source /home/your-username/your-virtualenv/bin/activate
+pip install gtts
+python3.10 -m venv ~/venv
+
+git config --global user.name "TTics"
+git config --global user.email "whydontyouponto1@gmail.com"
