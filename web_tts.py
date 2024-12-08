@@ -44,6 +44,7 @@ def generate_audio():
             tts = gTTS(word, lang="th", slow=False)
             tts.save(temp_audio_file)
             
+            
             # Combine audio with pauses
             word_audio = AudioSegment.from_file(temp_audio_file)
             combined += word_audio + AudioSegment.silent(duration=dur * 1000)

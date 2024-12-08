@@ -20,4 +20,5 @@ EXPOSE 5000
 ENV FLASK_APP=app.py
 
 # Run the Flask app
-CMD ["python", "app.py"]
+CMD ["gunicorn", "--timeout", "120", "web_tts:app"]
+
