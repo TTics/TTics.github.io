@@ -16,3 +16,4 @@ python3.10 -m venv ~/venv
 
 git config --global user.name "TTics"
 git config --global user.email "whydontyouponto1@gmail.com"
+git push origin master
