@@ -3,14 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thai TTS</title>
+    <title>Audio Generator</title>
 </head>
 <body>
-    <h1>Thai Text-to-Speech</h1>
-    <form action="/play" method="post">
-        <label for="duration">Pause duration between words (seconds):</label>
-        <input type="number" step="0.1" id="duration" name="duration" required>
-        <button type="submit">Play</button>
+    <h1>Generate Audio</h1>
+    <form id="generateForm">
+        <label for="duration">Pause Duration (seconds):</label>
+        <input type="number" id="duration" name="duration" step="0.1" required>
+        <button type="submit">Generate</button>
     </form>
+    <div id="result"></div>
+    <script>
+        document.getElementById('generateForm').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const response = await fetch('/generate', {
+                method: 'POST',
+                body: formData,
+            });
+            const data = await response.json();
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+            if (data.download_url) {
+                const downloadLink = document.createElement('a');
+                downloadLink.href = data.download_url;
+                downloadLink.textContent = 'Download your audio file';
+                downloadLink.download = 'generated_audio.mp3';
+                resultDiv.appendChild(downloadLink);
+            } else {
+                resultDiv.textContent = 'Error: ' + data.error;
+            }
+        });
+    </script>
 </body>
 </html>
