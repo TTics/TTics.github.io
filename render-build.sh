@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
+echo "Running render-build.sh..."
 
-# Install ffmpeg
-apt-get update && apt-get install -y ffmpeg
+# Install ffmpeg if it's not already installed
+apt-get update
+apt-get install ffmpeg
