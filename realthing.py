@@ -67,3 +67,14 @@ def download_audio(filename):
 
 if __name__ == '__main__':
     app.run(debug=True)
+
+import subprocess
+
+def check_ffmpeg():
+    try:
+        version = subprocess.check_output(['ffmpeg', '-version'])
+        print(version.decode('utf-8'))
+    except Exception as e:
+        print(f"Error: {e}")
+
+check_ffmpeg()
