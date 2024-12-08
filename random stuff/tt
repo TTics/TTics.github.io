@@ -17,3 +17,5 @@ python3.10 -m venv ~/venv
 git config --global user.name "TTics"
 git config --global user.email "whydontyouponto1@gmail.com"
 git push origin master
+git remote add origin https://github.com/yourusername/yourrepository.git
+git commit -m "Updated code with new requirements and files"
