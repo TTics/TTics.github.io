@@ -1,0 +1,13 @@
+money = int(input())
+tenbaht = money//10
+tenleftover = money%10
+fivebaht = tenleftover//5
+fiveleftover = tenleftover%5
+twobaht = fiveleftover//2
+twoleftover = fiveleftover%2
+onebaht = twoleftover
+oneleftover = twoleftover
+print(str(10) + " " + "="+ " " + str(tenbaht))
+print(str(5) + " " + "="+ " " + str(fivebaht))
+print(str(2) + " " + "="+ " " + str(twobaht))
+print(str(1) + " " + "="+ " " + str(onebaht))
